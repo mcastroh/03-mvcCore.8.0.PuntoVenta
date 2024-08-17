@@ -1,0 +1,11 @@
+﻿
+
+
+1. Instalar MaterializeCss:
+
+	Anti Clic es WebPuntoVenta 
+		> Administrar bibliotecas del lado del cliente
+		 materialize@1.0.0
+
+
+

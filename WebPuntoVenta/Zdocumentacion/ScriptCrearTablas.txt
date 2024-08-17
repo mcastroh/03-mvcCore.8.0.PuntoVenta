@@ -1,0 +1,74 @@
+﻿use PuntoVenta
+go
+
+--DESKTOP-F6KG9MM\\SQLEXPRESS
+
+
+alter authorization on database::PuntoVenta to sa;
+ -- ----------------
+ -- Códigos Postales
+  -- ----------------
+	CREATE TABLE Estados (
+		Id		int primary key  IDENTITY(1,1) NOT NULL,
+		Estado  [varchar](60) NOT NULL default '' )
+
+	CREATE TABLE Municipios (
+		Id		int primary key  IDENTITY(1,1) NOT NULL,
+		IdEstado int  references Estados(Id) NOT NULL,
+		Cve		tinyint  NOT NULL,
+		Municipio   [varchar](60) NOT NULL default '' )
+
+	CREATE TABLE CodigosPostales (
+		Id		int primary key  IDENTITY(1,1) NOT NULL,
+		IdMunicipio int references Municipios(Id) NOT NULL,
+		CodigoPostal int NOT NULL,
+		Asentamiento  [varchar](60) NOT NULL default '' )
+
+ -- ----------------
+ -- Direcciones
+ -- ---------------- 
+	CREATE   TABLE Direcciones (
+		Id			int primary key  IDENTITY(1,1) NOT NULL,
+		IdAsentamiento	int references CodigosPostales(Id)  not NULL,  
+		Calle		[varchar](256) NOT NULL,
+		Numero		[varchar](20) NOT NULL)	  
+
+ -- ----------------
+ -- Catálogo
+ -- ---------------- 
+	CREATE TABLE Categorias (
+		Id			int primary key  IDENTITY(1,1) NOT NULL,
+		Categoria  [varchar](60) NOT NULL,
+		IdPadre		int references Categorias(Id)  NULL	)
+	 
+	CREATE   TABLE Ocasiones (
+		Id		int primary key  IDENTITY(1,1) NOT NULL, 
+		Ocasion  [varchar](60) NOT NULL )
+	  
+	CREATE  TABLE  Sucursales (
+		Id		int primary key  IDENTITY(1,1) NOT NULL, 
+		Sucursal  [varchar](60) NOT NULL ,
+		IdDireccion	int	references Direcciones(Id) Not NULL)	   
+		    
+	CREATE   TABLE Proveedores (
+		Id		int primary key  IDENTITY(1,1) NOT NULL,
+		Proveedor  [varchar](60) NOT NULL,
+		IdDireccion int  references Direcciones(Id) NULL	 )
+
+	CREATE    TABLE Productos (
+		Id		int primary key  IDENTITY(1,1) NOT NULL,
+		Producto  [varchar](60) NOT NULL,
+		IdCategoria	int references Categorias(Id)  not NULL, 
+		IdProveedor	int references Proveedores(Id)  not NULL )
+
+	CREATE    TABLE ProductoOcasiones (
+		Id			int primary key  IDENTITY(1,1) NOT NULL, 
+		IdProducto	int references Productos(Id)  not NULL,  
+		IdOcasion	int references Ocasiones(Id)  not NULL )
+
+ 
+
+
+-- Relacionar vía diagramas las tablas de Proveedores
+
+		 
