@@ -1,0 +1,10 @@
+﻿gitHub Desktop (ver escritorio)		=> Para subir los cambios a GitHub 
+	
+	login a gitHub (ver los cambios)	=> github.com
+											email: m_castrohinostroza@hotmail.com
+											clave: ?cualPuedeSer?tana0218@?No?LoSe
+
+	Repositorio local en gitHub			=> E:\App Mach\03 mvcCore.8.0.PuntoVenta
+
+
+				
