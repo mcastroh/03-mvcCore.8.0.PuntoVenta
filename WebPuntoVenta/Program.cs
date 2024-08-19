@@ -6,7 +6,8 @@ builder.Services.AddServices(builder.Configuration);
 
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -23,6 +24,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Ocasiones}/{action=Index}/{id?}");
 
 app.Run();

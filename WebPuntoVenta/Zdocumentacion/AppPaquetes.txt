@@ -1,0 +1,24 @@
+﻿Instalar los siguientes paquetes:
+
+-----------------------------------------------------------------------------------------
+1. RazorRuntimeCompilation
+
+	- Instalado el paquete, ingresar al Program y cambiar la línea: 
+
+		dice:	builder.Services.AddControllersWithViews();
+		por:	builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+	- Adicionat a continuación:
+		builder.Services.AddRazorPages();
+-----------------------------------------------------------------------------------------
+2. Entity Framework Core:
+	
+	- Instalar los paquetes:
+	
+		Microsoft.EntityFrameworkCore
+		Microsoft.EntityFrameworkCore.SqlServer
+		Microsoft.EntityFrameworkCore.Tools
+-----------------------------------------------------------------------------------------
+3. Instalar
+	Microsoft.VisualStudio.Web.CodeGeneration.Design
+-----------------------------------------------------------------------------------------
